@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/pattama/Desktop/Pattama/study/FAST_api/api_venv"
+VIRTUAL_ENV="/Users/pattama/Desktop/Pattama/github/API_dev/api_venv3"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -54,8 +54,8 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    if [ "x(api_venv) " != x ] ; then
-	PS1="(api_venv) ${PS1:-}"
+    if [ "x(api_venv3) " != x ] ; then
+	PS1="(api_venv3) ${PS1:-}"
     else
     if [ "`basename \"$VIRTUAL_ENV\"`" = "__" ] ; then
         # special case for Aspen magic directories
