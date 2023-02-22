@@ -45,7 +45,7 @@ def get_post(db: Session = Depends(get_db)):
     #cursor.execute("SELECT * FROM posts")
     #posts = cursor.fetchall()
     posts = db.query(models.Post).all()
-    return {"data": posts}
+    return posts
 
 @app.post("/posts", status_code=status.HTTP_201_CREATED)
 def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db)):
@@ -57,7 +57,7 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db)):
     db.add(new_post)
     db.commit()
     db.refresh(new_post)
-    return {"data": new_post}
+    return new_post
 
 @app.get("/posts/latest")
 def get_latest_post():
@@ -111,4 +111,4 @@ def update_post(id: int, updated_post: schemas.PostCreate, db: Session = Depends
                             detail=f"Post with id {id} not found")
     post_query.update(updated_post.dict(), synchronize_session=False)
     db.commit()
-    return {"data": post_query.first()}
+    return post_query.first()
